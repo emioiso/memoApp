@@ -6,6 +6,14 @@ memoList = document.getElementById("id-memo-list")
 
 function addMemo(event) {
 	memoTest = document.getElementById("id-memo-text")
+
+	// version0.2 テキストボックスが空の時にメモを追加するボタンを押したらアラートを出す。
+	if(memoTest.value == ""){
+		alert("入力されたメモが空です。")
+		return
+	}
+	// ------------------------------------
+
 	currentMemoList = memoList.innerHTML
 	memoList.innerHTML = `${currentMemoList}<div id='memo-${memoCount()}'>・${memoTest.value}<input onclick="deleteMemo(event)" type="button" value="削除"></div>`
 	memoTest.value = ""
